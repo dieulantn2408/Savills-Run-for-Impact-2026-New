@@ -1,0 +1,1 @@
+v43: Updated Strava support contact to HCMC-HR@savills.com.vn and strengthened responsive CSS on support.html. No app logic, Firebase, Netlify Functions, Strava OAuth/sync, dashboard, maps, leaderboards, or existing assets were changed.

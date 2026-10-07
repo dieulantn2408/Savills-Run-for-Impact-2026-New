@@ -1,0 +1,45 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn(){ return request.auth != null; }
+    function isAdmin(){ return signedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid)); }
+    function isMember(){ return signedIn() && exists(/databases/$(database)/documents/members/$(request.auth.uid)); }
+    function campaignDate(d){ return d >= '2026-10-15' && d <= '2026-11-16'; }
+
+    match /admins/{uid} { allow get: if signedIn() && request.auth.uid == uid; allow list, write: if false; }
+    match /joinRequests/{uid} {
+      allow get: if signedIn() && (request.auth.uid == uid || isAdmin());
+      allow list: if isAdmin();
+      allow create: if signedIn() && request.auth.uid == uid && request.resource.data.uid == uid && request.resource.data.email == request.auth.token.email && request.resource.data.status == 'pending';
+      allow update: if isAdmin() || (signedIn() && request.auth.uid == uid && resource.data.status == 'rejected' && request.resource.data.status == 'pending');
+      allow delete: if false;
+    }
+    match /members/{uid} {
+      allow get: if signedIn() && (request.auth.uid == uid || isMember() || isAdmin());
+      allow list: if isMember() || isAdmin();
+      allow create, update: if isAdmin(); allow delete: if false;
+    }
+    match /submissions/{id} {
+      allow get: if isAdmin() || (isMember() && resource.data.employeeUid == request.auth.uid);
+      allow list: if isAdmin() || (isMember() && resource.data.employeeUid == request.auth.uid);
+      allow create: if isMember() && request.resource.data.employeeUid == request.auth.uid && request.resource.data.status == 'pending' && campaignDate(request.resource.data.activityDate) && request.resource.data.km > 0 && request.resource.data.km <= 200;
+      allow update: if isAdmin(); allow delete: if false;
+    }
+    match /proofHashes/{hash} {
+      allow get, list: if isAdmin();
+      allow create: if isMember() && request.resource.data.employeeUid == request.auth.uid && !exists(/databases/$(database)/documents/proofHashes/$(hash));
+      allow update, delete: if false;
+    }
+    match /activityProofs/{id} {
+      allow get: if isAdmin() || (isMember() && resource.data.employeeUid == request.auth.uid);
+      allow list: if isAdmin();
+      allow create: if isMember() && request.resource.data.employeeUid == request.auth.uid;
+      allow update, delete: if false;
+    }
+    match /approvedActivities/{id} {
+      allow read: if isMember() || isAdmin();
+      allow create, update, delete: if isAdmin();
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

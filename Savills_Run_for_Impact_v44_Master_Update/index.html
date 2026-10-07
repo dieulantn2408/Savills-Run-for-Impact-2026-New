@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Run for Impact 2026 | Savills</title>
+  <link rel="stylesheet" href="./styles.css?v=43" />
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand">
+      <img class="brand-logo" src="./assets/savills-logo.jpg" alt="Savills" />
+      <div class="brand-title rfi-brand"><span class="black">Run</span><span class="for-square">for</span><span class="black">Impact</span><b class="year">2026</b></div>
+    </div>
+    <div id="topActions" class="hidden top-actions">
+      <nav class="nav" id="nav"></nav>
+      <button id="adminNoticeBtn" class="notice-btn hidden" type="button" aria-label="Pending HR approvals" title="Pending HR approvals">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a2.6 2.6 0 0 0 2.45-1.75h-4.9A2.6 2.6 0 0 0 12 22Zm7-5.25-1.6-2.1V9.5a5.4 5.4 0 0 0-4.15-5.25V3.5a1.25 1.25 0 0 0-2.5 0v.75A5.4 5.4 0 0 0 6.6 9.5v5.15L5 16.75V18h14v-1.25Z"/></svg>
+        <span id="adminNoticeBadge" class="notice-badge hidden">0</span>
+      </button>
+      <div class="user-chip" id="userChip"><span class="user-avatar">👤</span><span id="userDisplayName">User</span></div>
+      <button class="ghost logout-btn" id="logoutBtn">Log out</button>
+    </div>
+  </header>
+
+  <main id="authGate" class="gate">
+    <section class="gate-card">
+      <div class="eyebrow">Every KM counts. Every step creates impact.</div>
+      <h1>Move together.<br>Make an impact.</h1>
+      <p class="muted">Create an account with your personal email to save your campaign data. When switching devices, simply sign in to continue where you left off</p>
+      <div class="tabs"><button type="button" id="loginTab" class="active">Log in</button><button type="button" id="signupTab">Create account</button></div>
+      <form id="authForm">
+        <div class="field"><label>Email</label><input id="email" type="email" required autocomplete="email" /></div>
+        <div class="field"><label>Password</label><input id="password" type="password" minlength="6" required autocomplete="current-password" /></div>
+
+        <div id="signupEmployeeFields" class="hidden">
+          <div class="field"><label>Full name</label><input id="signupName" maxlength="100" autocomplete="name" /></div>
+          <div class="form-row">
+            <div class="field">
+              <label>Department</label>
+              <div class="signup-department-wrap"><input id="signupDepartment" list="departmentOptions" placeholder="Search department / property" autocomplete="off" /></div>
+              <datalist id="departmentOptions">
+                <option value="PM - Avalon"></option>
+                <option value="PM - Bitexco"></option>
+                <option value="PM - Celesta Rise"></option>
+                <option value="PM - Citilight Tower"></option>
+                <option value="PM - Diamond Alnata"></option>
+                <option value="PM - Diamond Alnata Plus"></option>
+                <option value="PM - Diamond Brilliant"></option>
+                <option value="PM - Diamond Centery"></option>
+                <option value="PM - Estella Heights"></option>
+                <option value="PM - Feliz En Vista"></option>
+                <option value="PM - Gladia By The Waters"></option>
+                <option value="PM - Habitat Phase 3"></option>
+                <option value="PM - HD Tower"></option>
+                <option value="PM - Hoa Lan JVC Sales Gallery"></option>
+                <option value="PM - Hoang Anh Giai Viet"></option>
+                <option value="PM - IFM Services for HCL Tech"></option>
+                <option value="PM - IFM Services for L’Oréal"></option>
+                <option value="PM - Masteri An Phu"></option>
+                <option value="PM - Metrolink An Phu"></option>
+                <option value="PM - Riverfront Financial Centre"></option>
+                <option value="PM - Sai Gon Pearl - Ruby"></option>
+                <option value="PM - Sai Gon Pearl - Sapphire"></option>
+                <option value="PM - Sai Gon Pearl - Topaz"></option>
+                <option value="PM - Sai Gon Pearl - Villas"></option>
+                <option value="PM - Sky Gate"></option>
+                <option value="PM - Sun Casa"></option>
+                <option value="PM - Sunwah Pearl"></option>
+                <option value="PM - Swanbay Le Centre"></option>
+                <option value="PM - The Estella"></option>
+                <option value="PM - The Horizon"></option>
+                <option value="PM - The Infiniti"></option>
+                <option value="PM - The Marq"></option>
+                <option value="PM - The Nexus Tower 2"></option>
+                <option value="PM - Van Phuc City"></option>
+                <option value="PM - HO"></option>
+                <option value="Banking Corporate Services"></option>
+                <option value="Leasing"></option>
+                <option value="Finance"></option>
+                <option value="Human Resources"></option>
+                <option value="Industrial Service"></option>
+                <option value="Investment"></option>
+                <option value="Regional IT"></option>
+                <option value="Vietnam IT"></option>
+                <option value="Marketing and Corporate Communication"></option>
+                <option value="Research"></option>
+                <option value="Residential Sales"></option>
+                <option value="Savills Private Office"></option>
+                <option value="Savills Hotels, Asia Pacific"></option>
+                <option value="Valuation"></option>
+                <option value="Property Management"></option>
+                <option value="Savills Place"></option>
+                <option value="Business Development"></option>
+              </datalist>
+            </div>
+            <div class="field">
+              <label>Office</label>
+              <select id="signupOffice">
+                <option value="">Select office</option>
+                <option>HCMC</option>
+                <option>Hanoi</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label>Employee ID / Mã số nhân viên</label>
+            <input id="signupEmployeeId" maxlength="40" autocomplete="off" />
+          </div>
+          
+          <div id="characterPicker" class="character-picker">
+            <div class="character-picker-head">
+              <div><div class="eyebrow">Choose your cube</div>
+              <p class="form-hint">Your chosen cube will represent you on your personal map.</p></div>
+              <span class="character-step">Required</span>
+            </div>
+            <div id="characterGrid" class="character-grid"></div>
+            <input id="signupAvatarId" type="hidden" value="" />
+            <div id="selectedCharacter" class="selected-character hidden"><button type="button" id="cubeBackBtn" class="ghost">← Back to cubes</button>
+              <img id="selectedCharacterImg" alt="Selected cube character" />
+              <div><strong id="selectedCharacterName">Cube selected</strong><span>Your character is ready for the journey.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <p id="signupDisclaimer" class="form-hint hidden">Your information can only be submitted once and requires system approval before campaign access is granted. Please review all details carefully before submitting</p><button class="primary" id="authSubmit" type="submit">Log in</button>
+        <div id="authError" class="error hidden"></div>
+      </form>
+    </section>
+  </main>
+
+  <main id="verificationGate" class="gate hidden">
+    <section class="gate-card">
+      <div class="eyebrow">Employee verification</div>
+      <h1>One quick check before you join.</h1>
+      <p class="muted">This information is submitted once. HR will review it manually before campaign access is unlocked.</p>
+      <form id="verificationForm">
+        <div class="field"><label>Full name</label><input id="vName" required maxlength="100" /></div>
+        <div class="form-row">
+          <div class="field"><label>Department</label><input id="vDepartment" list="departmentOptions" required placeholder="Search department / property" autocomplete="off" /></div></div>
+          <div class="field"><label>Office</label><select id="vOffice" required><option value="">Select office</option><option>HCMC</option><option>Hanoi</option></select></div>
+        </div>
+        <div class="field"><label>Employee ID</label><input id="vEmployeeId" required maxlength="40" /></div>
+        <button class="primary" type="submit">Create Account & Request Access</button>
+        <div id="verificationError" class="error hidden"></div>
+      </form>
+    </section>
+  </main>
+
+  <main id="statusGate" class="gate hidden">
+    <section class="gate-card">
+      <div class="eyebrow">Access status</div>
+      <h1 id="statusTitle">Account created - waiting for approval</h1>
+      <p id="statusText" class="muted"></p>
+      <div id="statusReason" class="error hidden"></div>
+      <button id="resubmitBtn" class="primary hidden">Update and resubmit</button>
+      <button id="statusLogoutBtn" class="secondary" style="margin-left:8px">Return to main page to log in</button>
+    </section>
+  </main>
+
+  <main id="app" class="page hidden">
+    <section id="homeView">
+      <section class="dashboard-intro">
+        <div>
+          <div class="eyebrow hidden">Savills Run for Impact 2026</div>
+          <h1>Move together. Make an impact.</h1>
+        </div>
+        <div id="motivation" class="success dashboard-message">Every KM counts.</div>
+        <div id="adminOverviewNote" class="admin-overview-note hidden">Admin overview: campaign progress only. Weekly goal and run submission controls are hidden for Admin accounts.</div>
+      </section>
+
+      <section class="panel rfi-how" id="howCard">
+        <div class="eyebrow">GET STARTED</div><h2>How It Works</h2>
+        <div class="rfi-steps">
+          <div class="rfi-step"><span class="step-index">01</span><div><h3>Connect & Join</h3><p>Connect your Strava account to the Savills website and join our company club to get started.</p>
+            <div id="stravaCard" class="strava-card"><div id="stravaStatus" class="cycle-status">Checking connection…</div><label class="strava-consent"><input id="stravaConsent" type="checkbox"/> I authorize Savills Run to access the Strava data required for campaign tracking. I can withdraw this authorization at any time.</label>
+            <div class="strava-actions"><button class="primary" id="stravaConnectBtn" type="button">Connect with Strava</button><button class="ghost hidden" id="stravaDisconnectBtn" type="button">Disconnect Strava</button><a id="stravaClubLink" class="ghost" href="https://www.strava.com/clubs/2352886" target="_blank" rel="noopener">Join Savills Strava Club ↗</a></div><p class="muted small">Connection status is securely stored with your Savills Run account.</p></div>
+          </div></div>
+          <div class="rfi-step"><span class="step-index">02</span><div><h3>Track Your Activities</h3><p>Record and save outdoor runs or walks on Strava. Eligible activities automatically sync to your dashboard after verification.</p></div></div>
+          <div class="rfi-step"><span class="step-index">03</span><div><h3>Watch Your Impact Grow</h3><p>See your cube move forward with every approved kilometre. Each KM contributes VND 1,000 towards our collective VND 50 million fundraising goal.</p></div></div>
+        </div>
+        <div class="guide-cards"><button class="guide-card" data-guide="device"><span><strong>Device Setup Guide</strong><small>Set up your phone or smartwatch</small><b>Explore guide →</b></span></button><button class="guide-card" data-guide="rules"><span><strong>Fair Play Rules</strong><small>Make every KM count fairly</small><b>Explore rules →</b></span></button></div>
+      </section>
+      <section id="guidePage" class="panel guide-page hidden"><button class="ghost" id="guideBack">← Back to How It Works</button><div id="guideBody"></div></section>
+      <div class="impact-visuals">
+        <div class="panel impact-card">
+          <div class="eyebrow" id="impactEyebrow">My impact</div>
+          <h2 id="impactTitle">Our collective impact</h2>
+          <div class="heart">
+<svg viewBox="0 0 240 220" aria-label="Collective impact liquid heart">
+<defs><clipPath id="heartLiquidClip"><path d="M120 204C102 187 31 133 31 76C31 37 76 21 103 49L120 68L137 49C164 21 209 37 209 76C209 133 138 187 120 204Z"/></clipPath></defs>
+<path class="heart-base" d="M120 204C102 187 31 133 31 76C31 37 76 21 103 49L120 68L137 49C164 21 209 37 209 76C209 133 138 187 120 204Z"/>
+<g clip-path="url(#heartLiquidClip)">
+  <g id="heartLevel">
+    <rect id="heartFill" x="20" y="0" width="200" height="220"/>
+    <path class="wave wave-back" d="M-120 8Q-90-2-60 8T0 8T60 8T120 8T180 8T240 8T300 8V40H-120Z"/>
+    <path class="wave wave-front" d="M-120 13Q-90 3-60 13T0 13T60 13T120 13T180 13T240 13T300 13V44H-120Z"/>
+  </g>
+</g>
+<path class="heart-outline" fill="none" d="M120 204C102 187 31 133 31 76C31 37 76 21 103 49L120 68L137 49C164 21 209 37 209 76C209 133 138 187 120 204Z"/>
+</svg>
+</div>
+<div class="big-number"><span id="companyKm">0</span><span id="impactDenominator"> / 50,000 KM</span></div>
+          <p><strong id="companyPct">0%</strong> · <span id="donation">0 VND</span> raised</p>
+          <span class="badge approved">1 KM = 1,000 VND</span>
+        </div>
+      </div>
+
+      <div class="stats" id="personalStats">
+        <div class="panel stat"><div class="muted">My approved KM</div><div class="value" id="myKm">0</div></div>
+        <div class="panel stat"><div class="muted">Current rank</div><div class="value" id="myRank">—</div></div>
+        <div class="panel stat"><div class="muted">My impact</div><div class="value" id="myImpact">0 VND</div></div>
+        <div class="panel stat"><div class="muted">Employees moving</div><div class="value" id="memberCount">0</div></div>
+      </div>
+
+
+      <section class="panel community-panel community-panel-large" id="communityJourneyPanel">
+        <div class="community-head">
+          <div>
+            <div class="eyebrow">Together on the road</div>
+            <h2>Community Journey</h2>
+          </div>
+          <div class="community-summary" id="communitySummary">0 participants moving</div>
+        </div>
+        <div class="community-track community-track-large" id="communityTrack">
+          <div class="community-road-wrap"><img class="community-road" src="./assets/community-road.png" alt="Community race road"/></div>
+          <div id="communityMilestones"></div>
+          <div id="communityMarkers"></div>
+        </div>
+        <div class="community-legend"><span>START · 0 KM</span><strong>100 KM · FINISH</strong></div>
+        
+      </section>
+      <div id="participantActions" class="hidden"><div id="goalButtons"></div><div id="goalStatus"></div><button id="saveGoalBtn"></button><form id="submissionForm"><input id="runKm"/><input id="runDate"/><input id="proofUrl"/><textarea id="runNote"></textarea><button id="submitProofBtn"></button><div id="submissionCycleStatus"></div><div id="submitMessage"></div></form></div>
+      <div class="rfi-boards">
+        <section class="panel"><div class="eyebrow">LEADERBOARD 01</div><h2>Individual Leaderboard</h2><div id="individualTabs" class="week-tabs"></div><div id="podium" class="hidden"></div><div id="leaderboard"></div><button class="ghost more-btn" id="individualMore">Show More ↓</button></section>
+        <section class="panel"><div class="eyebrow">LEADERBOARD 02</div><h2>Department Leaderboard</h2><div id="departmentTabs" class="week-tabs"></div><div class="office-filters"><button data-office="All" class="active">All</button><button data-office="Hanoi">Hanoi</button><button data-office="HCMC">HCMC</button></div><div id="departments"></div><button class="ghost more-btn" id="departmentMore">Show More ↓</button></section>
+      </div>
+    </section>
+
+    <section id="adminView" class="hidden">
+      <div class="panel"><div class="eyebrow">HR / Admin</div><h1>BTC Approval Dashboard</h1><p class="muted">Only authorised BTC accounts can approve employees and review flagged activities.</p></div>
+      <div class="admin-grid" style="margin-top:18px">
+        <section class="panel"><div class="eyebrow">1 · Account approval</div><h2>Employee access requests</h2><p class="muted">Verify the employee name, department, office and Employee ID before granting campaign access.</p><div id="joinQueue"><p class="muted">Loading access requests…</p></div></section>
+        <section class="panel"><div class="eyebrow">2 · KM verification</div><h2>Strava Activity Review</h2><p class="muted">Review flagged GPS activities. Only approved KM moves the cube and updates campaign totals.</p><div id="runQueue"><p class="muted">Loading run submissions…</p></div></section>
+      </div>
+    </section>
+
+    <footer class="footer"><strong>We run together. We move together. We make an impact together.</strong><span>Savills Run for Impact 2026 · <a href="/support">Support</a> · <a href="/support#privacy">Privacy</a> · <a href="mailto:HCMC-HR@savills.com.vn">Contact</a></span></footer>
+  <div id="disconnectModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="disconnectTitle"><div class="modal-card"><h2 id="disconnectTitle">Disconnect Strava?</h2><p>This will disconnect your Strava account from Savills Run and stop Savills Run from accessing new Strava activity data.</p><div class="modal-actions"><button class="ghost" id="disconnectCancel" type="button">Cancel</button><button class="danger" id="disconnectConfirm" type="button">Disconnect</button></div></div></div>
+  </main>
+</div>
+<script type="module" src="./app.js?v=44"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# QA checklist
+- [ ] New Netlify site has a different URL from the old site
+- [ ] Login page shows Add to Home Screen guidance
+- [ ] Guide and FAQs work without login
+- [ ] Approved member opens Dashboard directly
+- [ ] Community Journey is first/main Dashboard visual
+- [ ] All / My Position works
+- [ ] 0 / 25 / 50 / 75 / 100+ labels remain visible on mobile
+- [ ] 50,000 KM appears only as collective goal, not map scale
+- [ ] Activity date accepts only 15 Oct–16 Nov 2026
+- [ ] Link proof submits
+- [ ] Screenshot proof submits
+- [ ] Exact duplicate proof is blocked
+- [ ] BTC can view proof, approve and reject
+- [ ] Only approved activity changes Journey / Leaderboard / Collective Impact
+- [ ] W1–W6 and Total use activity date
+- [ ] iPhone portrait tested
+- [ ] Android portrait tested
+- [ ] Laptop tested
+- [ ] 1,000 participant simulation tested for map density/performance
